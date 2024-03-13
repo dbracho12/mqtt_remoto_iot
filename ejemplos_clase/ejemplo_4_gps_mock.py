@@ -22,21 +22,22 @@ if __name__ == "__main__":
 
     # ----------------------
     # Aquí conectarse a MQTT
-    client = paho.Client("gps_mock_local")
+    client = paho.Client("gps_mock_remoto_danny_bracho")
     client.on_connect = on_connect
-    client.connect(config["BROKER"], int(config["PORT"]))
+    client.username_pw_set(config["DASHBOARD_MQTT_USER"], config["DASHBOARD_MQTT_PASSWORD"])
+    client.connect(config["DASHBOARD_MQTT_BROKER"], int(config["DASHBOARD_MQTT_PORT"]))
     client.loop_start()
 
     # ----------------------
     
     # Datos iniciales
-    topico = "sensores/gps"
+    topico = config["DASHBOARD_TOPICO_BASE"]+ "sensores/gps"
     data = {"latitude": -34.55, "longitude": -58.498}
 
     # ----------------------
     # Aquí preparar el blucle para enviar datos
     for i in range(4000):
-        data["longitude"] += .0001
+        data["latitude"] += .0001
         data_jsonstr = json.dumps(data)
         ret = client.publish(topico, data_jsonstr) 
         time.sleep(.1)

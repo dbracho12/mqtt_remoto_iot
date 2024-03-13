@@ -22,7 +22,7 @@ Topicos que soporta este mock drone emulado:
 |  actuadores | luces    | 1    |  0/1
 |  actuadores | volar    |      |  0/1
 |  actuadores | motores  | 1..4 |  0/1
-|  actuadores | joystick |      |  {"x": 0.8, "y": 0.3
+|  actuadores | joystick |      |  {"x": 0.8, "y": 0.3}
 
 
 ### 2 - Lanzar el simulador sensores mock

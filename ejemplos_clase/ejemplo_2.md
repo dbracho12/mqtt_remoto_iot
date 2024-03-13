@@ -1,4 +1,4 @@
-# Ejemplos de clase
+cd# Ejemplos de clase
 
 En esta práctica utilizaremos el simulador "drone_iot" con de celular para obtener valores de sensores reales informados por el celular.
 
